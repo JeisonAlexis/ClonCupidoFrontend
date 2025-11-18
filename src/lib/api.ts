@@ -182,7 +182,6 @@ export const authAPI = {
     return response.data;
   },
 
-
   deactivateAccount: async () => {
     const response = await api.post("/auth/deactivate/");
     return response.data;
@@ -213,6 +212,14 @@ export const authAPI = {
 
   updateProfileData: async (data: any) => {
     const response = await api.patch("/profile/profileManagement/update/", data);
+    return response.data;
+  },
+
+  // 🔥 NUEVA FUNCIÓN: Actualizar perfil con preferencias
+  updateProfileWithPreferences: async (preferencesId: number) => {
+    const response = await api.patch("/profile/profileManagement/update/", {
+      preferencias: preferencesId
+    });
     return response.data;
   },
 
